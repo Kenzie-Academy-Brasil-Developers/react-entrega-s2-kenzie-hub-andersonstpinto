@@ -1,6 +1,7 @@
 import { SignupPage } from '../pages/SignupPage'
 import { Switch, Route } from 'react-router-dom'
 import { LoginPage } from '../pages/LoginPage'
+import { Dashboard } from '../pages/Dashboard'
 
 export const Routes = () => {
   return (
@@ -10,6 +11,9 @@ export const Routes = () => {
       </Route>
       <Route path='/signup'>
         <SignupPage />
+      </Route>
+      <Route path='/dashboard'>
+        <Dashboard />
       </Route>
     </Switch>
   )

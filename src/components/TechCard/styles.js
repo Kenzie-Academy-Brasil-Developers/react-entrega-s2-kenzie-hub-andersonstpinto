@@ -6,6 +6,7 @@ export const LiContainer = styled.li`
   align-items: center;
   min-width: 280px;
   padding: 12px;
+  margin-bottom: 16px;
   border-radius: 4px;
   background-color: var(--gray-4);
   transition: 0.2s all ease-out;
@@ -31,5 +32,9 @@ export const LiContainer = styled.li`
     span {
       color: var(--gray-0);
     }
+  }
+
+  :last-of-type {
+    margin-bottom: 0;
   }
 `

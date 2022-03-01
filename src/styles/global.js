@@ -31,7 +31,7 @@ export default createGlobalStyle`
   #root {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100vw;
     height: 100vh;
   }
