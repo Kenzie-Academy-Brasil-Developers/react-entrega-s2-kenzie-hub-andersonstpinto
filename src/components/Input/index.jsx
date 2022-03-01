@@ -1,10 +1,10 @@
 import { InputContainer } from './styles'
 
-export const Input = () => {
+export const Input = ({ label, ...rest }) => {
   return (
     <InputContainer>
-      <label>Label</label>
-      <input placeholder='Placeholder' />
+      <label>{label}</label>
+      <input {...rest} />
       <span>Helper Text</span>
     </InputContainer>
   )

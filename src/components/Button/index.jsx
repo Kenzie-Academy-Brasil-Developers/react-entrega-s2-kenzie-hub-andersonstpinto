@@ -1,9 +1,11 @@
 import { ButtonContainer } from './style'
 
-export const Button = props => {
+export const Button = ({ color, disabled, onClick, children }) => {
   return (
     <>
-      <ButtonContainer color={props.color}>Send</ButtonContainer>
+      <ButtonContainer color={color} onClick={onClick} disabled={disabled}>
+        {children}
+      </ButtonContainer>
     </>
   )
 }

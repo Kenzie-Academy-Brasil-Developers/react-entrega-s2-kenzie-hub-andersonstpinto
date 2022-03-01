@@ -23,6 +23,19 @@ export default createGlobalStyle`
     --failure: #e83f5b;
   }
 
+  body {
+    background-color: var(--gray-4);
+    color: var(--gray-0);
+  }
+
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
   button {
     cursor: pointer;
   }

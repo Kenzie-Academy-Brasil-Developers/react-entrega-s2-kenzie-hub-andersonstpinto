@@ -1,12 +1,11 @@
 import GlobalStyle from './styles/global'
-import { Teste } from './components/Test'
+import { Routes } from './routes'
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-      {/* <Routes /> */}
-      <Teste />
+      <Routes />
     </>
   )
 }
