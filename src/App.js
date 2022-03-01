@@ -1,3 +1,12 @@
+import GlobalStyle from './styles/global'
+import { Teste } from './components/Test'
+
 export const App = () => {
-  return <div className='App'></div>
+  return (
+    <>
+      <GlobalStyle />
+      {/* <Routes /> */}
+      <Teste />
+    </>
+  )
 }
