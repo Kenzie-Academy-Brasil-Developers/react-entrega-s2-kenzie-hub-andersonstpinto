@@ -1,11 +1,13 @@
 import { Container } from './style'
 import { SignupForm } from '../../components/SignupForm'
-import Logo from '../../assets/imgs/Logo.svg'
+import { Header } from '../../components/Header'
+import { useHistory } from 'react-router-dom'
 
 export const SignupPage = () => {
+  const history = useHistory()
   return (
     <Container>
-      <img src={Logo} alt='' />
+      <Header history={history} />
       <SignupForm />
     </Container>
   )

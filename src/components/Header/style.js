@@ -2,8 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 90%;
-  max-width: 369px;
+  width: 100%;
+  height: 73px;
+
+  img {
+    width: 101px;
+  }
 `
