@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 369px;
 `

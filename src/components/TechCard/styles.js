@@ -4,7 +4,7 @@ export const LiContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 280px;
+  width: 100%;
   padding: 12px;
   margin-bottom: 16px;
   border-radius: 4px;
