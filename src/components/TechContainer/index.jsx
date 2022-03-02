@@ -5,7 +5,7 @@ import { NewTechModal } from '../NewTechModal'
 import { EditTechModal } from '../EditTechModal'
 import { useState } from 'react'
 
-export const TechContainer = () => {
+export const TechContainer = ({ techs }) => {
   const [newTechModal, setNewTechModal] = useState(false)
   const [editTechModal, setEditTechModal] = useState(false)
 
@@ -16,7 +16,7 @@ export const TechContainer = () => {
         <SmallButton onClick={() => setNewTechModal(true)}>+</SmallButton>
       </TechUlTitle>
       <ul>
-        {['teste', 'teste2', 't3', 't4', 't5', 't6'].map((tech, idx) => (
+        {techs.map((tech, idx) => (
           <TechCard key={idx} onClick={() => setEditTechModal(true)}>
             {tech}
           </TechCard>

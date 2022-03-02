@@ -25,16 +25,14 @@ export const LoginForm = ({ setAuth }) => {
   })
 
   const onSubmit = loginData => {
-    console.log(loginData)
     api
       .post('/sessions', loginData)
       .then(({ data }) => {
-        console.log(data)
-        setAuth(true)
         //toast
         localStorage.setItem('@KenzieHub:token', JSON.stringify(data.token))
         localStorage.setItem('@KenzieHub:user', JSON.stringify(data.user))
-        history.push('/dashboard')
+        setAuth(true)
+        return history.push('/dashboard')
       })
       .catch(err => {
         console.log(err)

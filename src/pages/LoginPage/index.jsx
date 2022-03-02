@@ -4,7 +4,6 @@ import Logo from '../../assets/imgs/Logo.svg'
 import { LoginContainer } from './style'
 
 export const LoginPage = ({ authState: { auth, setAuth } }) => {
-  console.log(auth)
   if (auth) return <Redirect to='/dashboard' />
 
   return (

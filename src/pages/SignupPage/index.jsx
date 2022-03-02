@@ -4,7 +4,6 @@ import { Header } from '../../components/Header'
 import { Redirect, useHistory } from 'react-router-dom'
 
 export const SignupPage = ({ authState: { auth } }) => {
-  console.log(auth)
   const history = useHistory()
   if (auth) return <Redirect to='/dashboard' />
 
