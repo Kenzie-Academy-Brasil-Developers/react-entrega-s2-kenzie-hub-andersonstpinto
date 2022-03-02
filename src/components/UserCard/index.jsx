@@ -1,10 +1,12 @@
 import { UserContainer } from './style'
 
 export const UserCard = () => {
+  const user = JSON.parse(localStorage.getItem('@KenzieHub:user'))
+
   return (
     <UserContainer>
-      <h1>Ola, props.user</h1>
-      <p>props.modulo</p>
+      <h1>Olá, {user.name}</h1>
+      <p>{user.course_module}</p>
     </UserContainer>
   )
 }
