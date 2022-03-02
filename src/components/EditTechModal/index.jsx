@@ -8,7 +8,7 @@ import { SmallButton } from '../SmallButton'
 import { Button } from '../Button'
 import { Input } from '../Input'
 
-export const EditTechModal = ({ onClick }) => {
+export const EditTechModal = ({ onClose }) => {
   const schema = yup.object().shape({
     status: yup.string().required(),
   })
@@ -27,7 +27,7 @@ export const EditTechModal = ({ onClick }) => {
     <ModalContainer onSubmit={handleSubmit(onSubmit)}>
       <ModalHead>
         <h3>Alterar Tecnologia</h3>
-        <SmallButton onClick={onClick}>X</SmallButton>
+        <SmallButton onClick={onClose}>X</SmallButton>
       </ModalHead>
       <ModalContent>
         <Input

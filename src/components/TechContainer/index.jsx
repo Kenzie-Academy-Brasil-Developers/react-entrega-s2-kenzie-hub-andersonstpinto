@@ -16,15 +16,19 @@ export const TechContainer = ({ techs }) => {
         <SmallButton onClick={() => setNewTechModal(true)}>+</SmallButton>
       </TechUlTitle>
       <ul>
-        {techs.map((tech, idx) => (
-          <TechCard key={idx} onClick={() => setEditTechModal(true)}>
-            {tech}
-          </TechCard>
+        {techs.map(tech => (
+          <TechCard
+            key={tech.id}
+            tech={tech}
+            onClick={() => {
+              setEditTechModal(true)
+            }}
+          />
         ))}
       </ul>
-      {newTechModal && <NewTechModal onClick={() => setNewTechModal(false)} />}
+      {newTechModal && <NewTechModal onClose={() => setNewTechModal(false)} />}
       {editTechModal && (
-        <EditTechModal onClick={() => setEditTechModal(false)} />
+        <EditTechModal onClose={() => setEditTechModal(false)} />
       )}
     </TechUlContainer>
   )
