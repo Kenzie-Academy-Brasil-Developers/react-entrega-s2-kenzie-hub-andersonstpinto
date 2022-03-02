@@ -1,11 +1,13 @@
 import { InputContainer } from './styles'
 
-export const Input = ({ label, ...rest }) => {
+export const Input = ({ label, error, register, name, ...rest }) => {
   return (
     <InputContainer>
-      <label>{label}</label>
-      <input {...rest} />
-      <span>Helper Text</span>
+      <label>
+        {label}
+        {!!error && <span>{error}</span>}
+      </label>
+      <input {...register(name)} {...rest} />
     </InputContainer>
   )
 }

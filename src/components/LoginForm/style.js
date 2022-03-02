@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Form = styled.form`
+export const Form = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,11 +11,19 @@ export const Form = styled.form`
   box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
   background-color: var(--gray-3);
 
+  form {
+    width: 100%;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
   p {
     font-size: 12px;
     line-height: 18px;
     color: var(--gray-1);
     font-weight: 600;
-    margin: 34px 0 22px;
+    margin: 22px 0;
   }
 `

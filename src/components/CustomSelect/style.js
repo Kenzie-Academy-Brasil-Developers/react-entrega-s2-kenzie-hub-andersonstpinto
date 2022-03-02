@@ -28,6 +28,7 @@ export const Select = styled.div`
 
   span {
     font-size: 10px;
-    color: var(--gray-1);
+    color: var(--failure);
+    margin-left: 16px;
   }
 `
