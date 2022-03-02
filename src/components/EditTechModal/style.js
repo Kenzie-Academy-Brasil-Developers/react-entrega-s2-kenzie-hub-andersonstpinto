@@ -36,3 +36,20 @@ export const ModalHead = styled.section`
 export const ModalContent = styled.section`
   padding: 10px 16px 26px;
 `
+
+export const ButtonSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    height: fit-content;
+  }
+
+  button:first-of-type {
+    width: 62%;
+  }
+
+  button:last-of-type {
+    width: 30%;
+  }
+`

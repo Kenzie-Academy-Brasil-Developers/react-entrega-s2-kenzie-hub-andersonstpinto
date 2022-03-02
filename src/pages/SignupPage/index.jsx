@@ -5,7 +5,7 @@ import { Header } from '../../components/Header'
 export const SignupPage = () => {
   return (
     <SignupContainer>
-      <Header />
+      <Header smallbutton='Voltar' />
       <SignupForm />
     </SignupContainer>
   )

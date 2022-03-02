@@ -1,21 +1,31 @@
 import { SmallButton } from '../SmallButton'
 import { TechUlContainer, TechUlTitle } from './style'
 import { TechCard } from '../TechCard'
-import { NewTechModal } from '../../components/NewTechModal'
+import { NewTechModal } from '../NewTechModal'
+import { EditTechModal } from '../EditTechModal'
+import { useState } from 'react'
 
 export const TechContainer = () => {
+  const [newTechModal, setNewTechModal] = useState(false)
+  const [editTechModal, setEditTechModal] = useState(false)
+
   return (
     <TechUlContainer>
       <TechUlTitle>
         <h2>Tecnologias</h2>
-        <SmallButton>+</SmallButton>
+        <SmallButton onClick={() => setNewTechModal(true)}>+</SmallButton>
       </TechUlTitle>
       <ul>
         {['teste', 'teste2', 't3', 't4', 't5', 't6'].map((tech, idx) => (
-          <TechCard key={idx}>{tech}</TechCard>
+          <TechCard key={idx} onClick={() => setEditTechModal(true)}>
+            {tech}
+          </TechCard>
         ))}
       </ul>
-      <NewTechModal />
+      {newTechModal && <NewTechModal onClick={() => setNewTechModal(false)} />}
+      {editTechModal && (
+        <EditTechModal onClick={() => setEditTechModal(false)} />
+      )}
     </TechUlContainer>
   )
 }

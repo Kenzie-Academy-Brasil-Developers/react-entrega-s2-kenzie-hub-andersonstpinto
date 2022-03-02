@@ -9,7 +9,6 @@ export const CustomSelect = ({ label, array }) => {
           <option key={idx}>{option}</option>
         ))}
       </select>
-      <span>Helper Text</span>
     </Select>
   )
 }

@@ -6,7 +6,7 @@ import { TechContainer } from '../../components/TechContainer'
 export const Dashboard = () => {
   return (
     <DashboardContainer>
-      <Header />
+      <Header smallbutton='Sair' />
       <UserCard />
       <TechContainer />
     </DashboardContainer>

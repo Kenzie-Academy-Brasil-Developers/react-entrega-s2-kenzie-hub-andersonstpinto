@@ -20,12 +20,12 @@ export const InputContainer = styled.div`
     background-color: var(--gray-2);
     transition: 0.1s all ease-in;
 
+    ::placeholder {
+      color: var(--gray-1);
+    }
+
     :focus {
       border-color: var(--gray-1);
-
-      ::placeholder {
-        color: var(--gray-1);
-      }
     }
   }
 
