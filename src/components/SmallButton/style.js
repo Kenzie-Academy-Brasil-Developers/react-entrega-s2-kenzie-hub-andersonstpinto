@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.button`
+export const SmallButtonContainer = styled.button`
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 4px;

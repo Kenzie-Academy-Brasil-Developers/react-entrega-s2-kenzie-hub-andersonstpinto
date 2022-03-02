@@ -1,12 +1,12 @@
 import { LoginForm } from '../../components/LoginForm'
 import Logo from '../../assets/imgs/Logo.svg'
-import { Container } from './style'
+import { LoginContainer } from './style'
 
 export const LoginPage = () => {
   return (
-    <Container>
+    <LoginContainer>
       <img src={Logo} alt='' />
       <LoginForm />
-    </Container>
+    </LoginContainer>
   )
 }

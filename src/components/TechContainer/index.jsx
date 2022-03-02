@@ -1,19 +1,21 @@
 import { SmallButton } from '../SmallButton'
-import { Container } from './style'
+import { TechUlContainer, TechUlTitle } from './style'
 import { TechCard } from '../TechCard'
+import { NewTechModal } from '../../components/NewTechModal'
 
 export const TechContainer = () => {
   return (
-    <Container>
-      <section>
+    <TechUlContainer>
+      <TechUlTitle>
         <h2>Tecnologias</h2>
         <SmallButton>+</SmallButton>
-      </section>
+      </TechUlTitle>
       <ul>
         {['teste', 'teste2', 't3', 't4', 't5', 't6'].map((tech, idx) => (
           <TechCard key={idx}>{tech}</TechCard>
         ))}
       </ul>
-    </Container>
+      <NewTechModal />
+    </TechUlContainer>
   )
 }

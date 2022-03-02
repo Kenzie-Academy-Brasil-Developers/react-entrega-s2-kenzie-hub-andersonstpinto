@@ -1,5 +1,7 @@
-import { Container } from './style'
+import { SmallButtonContainer } from './style'
 
 export const SmallButton = ({ onClick, children }) => {
-  return <Container onClick={onClick}>{children}</Container>
+  return (
+    <SmallButtonContainer onClick={onClick}>{children}</SmallButtonContainer>
+  )
 }
