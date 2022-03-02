@@ -1,11 +1,16 @@
 import { SignupContainer } from './style'
 import { SignupForm } from '../../components/SignupForm'
 import { Header } from '../../components/Header'
+import { Redirect, useHistory } from 'react-router-dom'
 
-export const SignupPage = () => {
+export const SignupPage = ({ authState: { auth } }) => {
+  console.log(auth)
+  const history = useHistory()
+  if (auth) return <Redirect to='/dashboard' />
+
   return (
     <SignupContainer>
-      <Header smallbutton='Voltar' />
+      <Header smallbutton='Voltar' onClick={() => history.push('/')} />
       <SignupForm />
     </SignupContainer>
   )

@@ -1,5 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import api from '../../services/api'
 import * as yup from 'yup'
 
 import { CustomSelect } from '../CustomSelect'
@@ -8,6 +10,7 @@ import { Input } from '../Input'
 import { Form } from './style'
 
 export const SignupForm = () => {
+  const history = useHistory()
   const courseModules = [
     'Primeiro módulo (Introdução ao Frontend)',
     'Segundo módulo (Frontend Avançado)',
@@ -24,6 +27,14 @@ export const SignupForm = () => {
       .oneOf([yup.ref('password')], 'Senhas diferentes')
       .required(),
     course_module: yup.string().required().default('Primeiro Módulo'),
+    bio: yup.string().max(24).required(),
+    contact: yup
+      .string()
+      .matches(
+        /^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/,
+        'Deve ser um número de celular válido, incluindo DDD'
+      )
+      .required(),
   })
 
   const {
@@ -36,6 +47,16 @@ export const SignupForm = () => {
 
   const onSubmit = ({ passwordConfirm, ...rest }) => {
     console.log(rest)
+    api
+      .post('/users', rest)
+      .then(_ => {
+        // toast.success('Sucesso ao criar a conta')
+        return history.push('/')
+      })
+      .catch(err => {
+        // toast.error('Criar conta falhou')
+        console.log(err)
+      })
   }
 
   return (
@@ -58,6 +79,22 @@ export const SignupForm = () => {
           register={register}
           name='email'
           error={errors.email?.message}
+        />
+        <Input
+          label='Bio'
+          type='text'
+          placeholder='Digite aqui sua bio'
+          register={register}
+          name='bio'
+          error={errors.bio?.message}
+        />
+        <Input
+          label='Telefone'
+          type='text'
+          placeholder='Digite aqui seu celular'
+          register={register}
+          name='contact'
+          error={errors.contact?.message}
         />
         <Input
           label='Senha'

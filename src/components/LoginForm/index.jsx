@@ -1,13 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import api from '../../services/api'
 import * as yup from 'yup'
 
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { Form } from './style'
 
-export const LoginForm = () => {
+export const LoginForm = ({ setAuth }) => {
   const history = useHistory()
 
   const schema = yup.object().shape({
@@ -23,7 +24,23 @@ export const LoginForm = () => {
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = loginData => {
+    console.log(loginData)
+    api
+      .post('/sessions', loginData)
+      .then(({ data }) => {
+        console.log(data)
+        setAuth(true)
+        //toast
+        localStorage.setItem('@KenzieHub:token', JSON.stringify(data.token))
+        localStorage.setItem('@KenzieHub:user', JSON.stringify(data.user))
+        history.push('/dashboard')
+      })
+      .catch(err => {
+        console.log(err)
+        //toast
+      })
+  }
 
   return (
     <Form>
