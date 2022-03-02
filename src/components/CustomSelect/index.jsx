@@ -1,13 +1,13 @@
 import { Select } from './style'
 
-export const CustomSelect = ({ label, error, onChange, array }) => {
+export const CustomSelect = ({ label, error, name, register, array }) => {
   return (
     <Select>
       <label>
         {label}
         {!!error && <span>{error}</span>}
       </label>
-      <select onChange={onChange}>
+      <select {...register(name)}>
         {array.map((option, idx) => (
           <option key={idx} value={option}>
             {option}

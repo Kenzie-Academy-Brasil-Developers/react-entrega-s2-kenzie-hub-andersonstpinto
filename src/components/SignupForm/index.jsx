@@ -8,6 +8,13 @@ import { Input } from '../Input'
 import { Form } from './style'
 
 export const SignupForm = () => {
+  const courseModules = [
+    'Primeiro módulo (Introdução ao Frontend)',
+    'Segundo módulo (Frontend Avançado)',
+    'Terceiro módulo (Introdução ao Backend)',
+    'Quarto módulo (Backend Avançado)',
+  ]
+
   const schema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().email().required(),
@@ -16,19 +23,20 @@ export const SignupForm = () => {
       .string()
       .oneOf([yup.ref('password')], 'Senhas diferentes')
       .required(),
-    select: yup.string().required().default('Primeiro Módulo'),
+    course_module: yup.string().required().default('Primeiro Módulo'),
   })
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = ({ passwordConfirm, ...rest }) => {
+    console.log(rest)
+  }
 
   return (
     <Form>
@@ -69,20 +77,10 @@ export const SignupForm = () => {
         />
         <CustomSelect
           label='Selecionar módulo'
-          array={[
-            'Primeiro Módulo',
-            'Segundo Módulo',
-            'Terceiro Módulo',
-            'Quarto Módulo',
-            'Quinto Módulo',
-            'Sexto Módulo',
-          ]}
+          array={courseModules}
           register={register}
-          name='select'
-          error={errors.select?.message}
-          onChange={e =>
-            setValue('select', e.target.value, { shouldValidate: true })
-          } // Using setValue
+          name='course_module'
+          error={errors.course_module?.message}
         />
         <Button color='primary' type='submit'>
           Cadastrar

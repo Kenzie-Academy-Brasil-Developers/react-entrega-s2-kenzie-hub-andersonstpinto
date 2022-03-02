@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.form`
   width: 100%;
   max-width: 369px;
   border-radius: 4px;
