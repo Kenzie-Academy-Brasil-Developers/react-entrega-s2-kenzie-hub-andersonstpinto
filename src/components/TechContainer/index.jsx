@@ -9,6 +9,9 @@ export const TechContainer = ({ techs }) => {
   const [newTechModal, setNewTechModal] = useState(false)
   const [editTechModal, setEditTechModal] = useState(false)
   const [currentTech, setCurrentTech] = useState({})
+  const [token] = useState(
+    JSON.parse(localStorage.getItem('@KenzieHub:token')) || ''
+  )
 
   return (
     <TechUlContainer>
@@ -21,18 +24,21 @@ export const TechContainer = ({ techs }) => {
           <TechCard
             key={tech.id}
             tech={tech}
-            onClick={() => {
-              setCurrentTech(tech)
-              setEditTechModal(true)
+            setters={{
+              setCurrentTech,
+              setEditTechModal,
             }}
           />
         ))}
       </ul>
-      {newTechModal && <NewTechModal onClose={() => setNewTechModal(false)} />}
+      {newTechModal && (
+        <NewTechModal token={token} setState={setNewTechModal} />
+      )}
       {editTechModal && (
         <EditTechModal
+          token={token}
           tech={currentTech}
-          onClose={() => setEditTechModal(false)}
+          setState={setEditTechModal}
         />
       )}
     </TechUlContainer>

@@ -9,7 +9,9 @@ import { TechContainer } from '../../components/TechContainer'
 
 export const Dashboard = ({ authState: { auth, setAuth } }) => {
   const [techs, setTechs] = useState([])
-  const user = JSON.parse(localStorage.getItem('@KenzieHub:user'))
+  const [user] = useState(
+    JSON.parse(localStorage.getItem('@KenzieHub:user')) || ''
+  )
 
   useEffect(() => {
     if (user) {
@@ -33,7 +35,7 @@ export const Dashboard = ({ authState: { auth, setAuth } }) => {
           localStorage.clear()
         }}
       />
-      <UserCard />
+      <UserCard user={user} />
       <TechContainer techs={techs} />
     </DashboardContainer>
   )

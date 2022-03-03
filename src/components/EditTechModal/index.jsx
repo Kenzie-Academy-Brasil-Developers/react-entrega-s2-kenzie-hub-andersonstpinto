@@ -9,9 +9,8 @@ import { SmallButton } from '../SmallButton'
 import { Button } from '../Button'
 import { Input } from '../Input'
 
-export const EditTechModal = ({ tech, onClose }) => {
+export const EditTechModal = ({ tech, setState, token }) => {
   const { title, status, id } = tech
-  const token = JSON.parse(localStorage.getItem('@KenzieHub:token'))
 
   const schema = yup.object().shape({
     status: yup.string().required(),
@@ -34,6 +33,7 @@ export const EditTechModal = ({ tech, onClose }) => {
       })
       .then(res => {
         console.log(res)
+        setState(false)
       })
       .catch(err => {
         console.log(err)
@@ -49,6 +49,7 @@ export const EditTechModal = ({ tech, onClose }) => {
       })
       .then(res => {
         console.log(res)
+        setState(false)
       })
       .catch(err => {
         console.log(err)
@@ -59,7 +60,7 @@ export const EditTechModal = ({ tech, onClose }) => {
     <ModalContainer onSubmit={handleSubmit(editTech)}>
       <ModalHead>
         <h3>Alterar Tecnologia</h3>
-        <SmallButton type='button' onClick={onClose}>
+        <SmallButton type='button' onClick={() => setState(false)}>
           X
         </SmallButton>
       </ModalHead>
