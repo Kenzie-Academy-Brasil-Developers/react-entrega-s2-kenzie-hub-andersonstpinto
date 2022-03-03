@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import api from '../../services/api'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 import { Button } from '../Button'
@@ -28,15 +29,15 @@ export const LoginForm = ({ setAuth }) => {
     api
       .post('/sessions', loginData)
       .then(({ data }) => {
-        //toast
+        toast.success('Sucesso!')
         localStorage.setItem('@KenzieHub:token', JSON.stringify(data.token))
         localStorage.setItem('@KenzieHub:user', JSON.stringify(data.user))
         setAuth(true)
         return history.push('/dashboard')
       })
       .catch(err => {
+        toast.error('Credenciais inválidas.')
         console.log(err)
-        //toast
       })
   }
 

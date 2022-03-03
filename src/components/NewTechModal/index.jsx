@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import api from '../../services/api'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 import { ModalContainer, ModalHead, ModalContent } from './style'
@@ -31,10 +32,13 @@ export const NewTechModal = ({ setState, token }) => {
         },
       })
       .then(res => {
-        console.log(res)
+        toast.success('Tecnologia criada com sucesso.')
         setState(false)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        toast.error('Ops! Algo deu errado.')
+        console.log(err)
+      })
   }
 
   return (

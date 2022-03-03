@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import api from '../../services/api'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 import { CustomSelect } from '../CustomSelect'
@@ -46,15 +47,14 @@ export const SignupForm = () => {
   })
 
   const onSubmit = ({ passwordConfirm, ...rest }) => {
-    console.log(rest)
     api
       .post('/users', rest)
       .then(_ => {
-        // toast.success('Sucesso ao criar a conta')
+        toast.success('Sucesso! Agora faça login.')
         return history.push('/')
       })
       .catch(err => {
-        // toast.error('Criar conta falhou')
+        toast.error('Ops! Algo deu errado.')
         console.log(err)
       })
   }

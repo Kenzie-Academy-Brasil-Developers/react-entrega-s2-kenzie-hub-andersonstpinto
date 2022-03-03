@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import api from '../../services/api'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 import { ButtonSection, ModalContainer, ModalHead, ModalContent } from './style'
@@ -32,10 +33,11 @@ export const EditTechModal = ({ tech, setState, token }) => {
         },
       })
       .then(res => {
-        console.log(res)
+        toast.success('Tecnologia alterada com sucesso')
         setState(false)
       })
       .catch(err => {
+        toast.error('Algo deu errado.')
         console.log(err)
       })
   }
@@ -48,10 +50,11 @@ export const EditTechModal = ({ tech, setState, token }) => {
         },
       })
       .then(res => {
-        console.log(res)
+        toast.success('Tecnologia excluída com sucesso')
         setState(false)
       })
       .catch(err => {
+        toast.error('Ops! Algo deu errado.')
         console.log(err)
       })
   }
