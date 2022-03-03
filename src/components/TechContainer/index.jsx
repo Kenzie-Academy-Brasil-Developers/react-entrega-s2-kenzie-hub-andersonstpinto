@@ -8,6 +8,7 @@ import { useState } from 'react'
 export const TechContainer = ({ techs }) => {
   const [newTechModal, setNewTechModal] = useState(false)
   const [editTechModal, setEditTechModal] = useState(false)
+  const [currentTech, setCurrentTech] = useState({})
 
   return (
     <TechUlContainer>
@@ -21,6 +22,7 @@ export const TechContainer = ({ techs }) => {
             key={tech.id}
             tech={tech}
             onClick={() => {
+              setCurrentTech(tech)
               setEditTechModal(true)
             }}
           />
@@ -28,7 +30,10 @@ export const TechContainer = ({ techs }) => {
       </ul>
       {newTechModal && <NewTechModal onClose={() => setNewTechModal(false)} />}
       {editTechModal && (
-        <EditTechModal onClose={() => setEditTechModal(false)} />
+        <EditTechModal
+          tech={currentTech}
+          onClose={() => setEditTechModal(false)}
+        />
       )}
     </TechUlContainer>
   )
