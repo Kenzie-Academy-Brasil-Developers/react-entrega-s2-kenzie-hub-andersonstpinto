@@ -2,11 +2,10 @@ import styled from 'styled-components'
 
 export const ModalContainer = styled.form`
   width: 100%;
-  max-width: 369px;
   border-radius: 4px;
   background-color: var(--gray-3);
   position: absolute;
-  top: -50px;
+  top: -45px;
   left: 0;
   box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.5);
 `

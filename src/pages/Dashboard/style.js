@@ -5,5 +5,6 @@ export const DashboardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  max-width: 369px;
+  min-width: 320px;
+  max-width: 820px;
 `
